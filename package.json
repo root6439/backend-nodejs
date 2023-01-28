@@ -8,7 +8,8 @@
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/shared/server.ts",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "migrate": "typeorm migration:create -n "
   },
   "author": "Nicolas Soares Henrique",
   "license": "ISC",
