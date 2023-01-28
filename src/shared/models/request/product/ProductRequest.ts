@@ -5,5 +5,5 @@ export interface IRequest {
 }
 
 export interface IPutRequest extends IRequest {
-  id: number;
+  id: string;
 }
