@@ -1,5 +1,8 @@
 # backend-nodejs
 
+Baixe o projeto e execute o comando npm i para instalar as dependências
+Utilize o comando npm run dev para subir o servidor local e utilizar as funcionalidades do projeto localmente.
+
 Aplicação backend para gestão de vendas com funcionalidades para criação de cadastro de produtos, cadastro de clientes, pedidos de compras e uma completa gestão de usuários da aplicação, com autenticação via Token JWT, recuperação de senha por email, atualização de perfil e atualização de avatar.
 
 Principais recursos que implementaremos no projeto:
