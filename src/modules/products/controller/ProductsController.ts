@@ -4,7 +4,7 @@ import { PostProduct } from "./../services/PostProduct";
 import { GetProductById } from "./../services/GetProductById";
 import { Product } from "./../typeorm/entities/Product";
 import { GetProducts } from "./../services/GetProducts";
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 
 export class ProductsController {
   public async get(req: Request, res: Response): Promise<Response<Product[]>> {
@@ -27,7 +27,7 @@ export class ProductsController {
     const { name, price, quantity } = req.body;
     const postProd = new PostProduct();
     const prod = await postProd.execute({ name, price, quantity });
-    return res.json(prod);
+    return res.status(201).json(prod);
   }
 
   public async put(req: Request, res: Response): Promise<Response<Product>> {
