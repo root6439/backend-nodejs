@@ -1,3 +1,4 @@
+import { SessionService } from "./../services/SessionService";
 import { PostUser } from "./../services/PostUser";
 import { GetUsers } from "./../services/GetUsers";
 import { User } from "./../typeorm/entities/User";
@@ -15,5 +16,15 @@ export class UsersController {
     const postUser = new PostUser();
     const user = await postUser.execute(name, email, password);
     return res.status(201).json(user);
+  }
+
+  public async authenticate(
+    req: Request,
+    res: Response
+  ): Promise<Response<User>> {
+    const { email, password } = req.body;
+    const sessionService = new SessionService();
+    const user = await sessionService.execute(email, password);
+    return res.json(user);
   }
 }
