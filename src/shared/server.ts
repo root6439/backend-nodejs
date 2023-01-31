@@ -6,13 +6,14 @@ import cors from "cors";
 import { errors } from "celebrate";
 import routes from "./http/routes/index";
 import "./typeorm";
+import uploadConfig from "../config/upload";
 
 const app = express();
 
 app.use(cors());
 
 app.use(express.json());
-
+app.use("/files", express.static(uploadConfig.directory));
 app.use(routes);
 
 app.use(errors());
