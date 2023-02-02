@@ -1,7 +1,9 @@
+import { OrdersProducts } from "./../../../orders/typeorm/entities/OrdersProducts";
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
@@ -10,6 +12,11 @@ import {
 export class Product {
   @PrimaryGeneratedColumn("uuid")
   id: string;
+
+  @OneToMany(() => OrdersProducts, (order_products) => order_products.product, {
+    cascade: true,
+  })
+  order_products: OrdersProducts[];
 
   @Column("varchar")
   name: string;

@@ -1,6 +1,4 @@
-import { Joi } from "celebrate";
-import { Segments } from "celebrate";
-import { celebrate } from "celebrate";
+import { Segments, celebrate, Joi } from "celebrate";
 import { CustomersController } from "./../controllers/CustomersController";
 import { Router } from "express";
 import { isAuthenticated } from "../../../shared/http/middlewares/isAuthenticated";
