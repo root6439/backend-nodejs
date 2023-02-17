@@ -2,12 +2,13 @@ import { PutUser } from "./../services/PutUser";
 import { GetUserById } from "./../services/GetUserById";
 import { User } from "./../typeorm/entities/User";
 import { Request, Response } from "express";
+import { instanceToInstance } from "class-transformer";
 
 export class ProfileController {
   public async get(req: Request, res: Response): Promise<Response<User[]>> {
     const getUser = new GetUserById();
     const user = await getUser.execute(req.user.id);
-    return res.json(user);
+    return res.json(instanceToInstance(user));
   }
 
   public async put(req: Request, res: Response): Promise<Response<User>> {
@@ -20,6 +21,6 @@ export class ProfileController {
       newPassword,
       actualPassword
     );
-    return res.json(user);
+    return res.json(instanceToInstance(user));
   }
 }

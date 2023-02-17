@@ -2,6 +2,7 @@ import { AppError } from "./../../../shared/errors/AppError";
 import { UpdateAvatar } from "./../services/UpdateAvatar";
 import { User } from "../typeorm/entities/User";
 import { Request, Response } from "express";
+import { instanceToInstance } from "class-transformer";
 
 interface File {
   fieldname: string;
@@ -25,6 +26,6 @@ export class UsersAvatarController {
     }
 
     const user = await updateAvatar.execute(req.user.id, file.originalname);
-    return res.json(user);
+    return res.json(instanceToInstance(user));
   }
 }
